@@ -16,7 +16,11 @@ object Main extends StreamApp[IO] {
   override def stream(args: List[String], requestShutdown: IO[Unit]): fs2.Stream[IO, StreamApp.ExitCode] =
     for {
       config ← Stream.eval(AppConfig.load[IO])
-      dynamoClientProvider = new DynamoClientProvider(config.dynamo.endpoint.value)
+      dynamoClientProvider = new DynamoClientProvider(
+        config.dynamo.endpoint.value,
+        config.dynamo.accessKey.value,
+        config.dynamo.secretKey.value
+      )
       movieRepository = new DynamoMovieRepository[IO](config.dynamo.tableName.value, dynamoClientProvider.client)
       movieService = new MovieService[IO](movieRepository)
       errorHandler = new ErrorHandler[IO]

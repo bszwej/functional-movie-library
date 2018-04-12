@@ -30,7 +30,7 @@ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 3. Go to DynamoDB local shell http://localhost:8000/shell and create a table:
 ```javascript
 const params = {
-    TableName: 'movies-test',
+    TableName: 'movies',
     KeySchema: [
         {
             AttributeName: 'id',

@@ -10,7 +10,7 @@ import pureconfig.error.ConfigReaderException
 import scala.language.higherKinds
 
 case class AppConfig(port: PortNumber, host: NonEmptyString, dynamo: Dynamo)
-case class Dynamo(tableName: NonEmptyString, endpoint: NonEmptyString)
+case class Dynamo(tableName: NonEmptyString, endpoint: NonEmptyString, accessKey: NonEmptyString, secretKey: NonEmptyString)
 
 object AppConfig {
 
