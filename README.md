@@ -1,6 +1,8 @@
 # Functional Movie Library
 
-This repository contains a movie library service written in a functional way.
+This repository contains a movie library service written in a functional way. 
+
+## Overview
 
 Things you can find here:
 - http4s
@@ -13,19 +15,20 @@ Things you can find here:
 - scanamo with custom interpreter for Async from cats-effect (purely for fun \& learning)
 - ...
 
-This project is a side-effect of playing around with Typelevel libraries.
-
-This experiment was inspired by:
+This experiment is a side-effect of playing around with Typelevel libraries. It was inspired by:
 - https://github.com/pauljamescleary/scala-pet-store
 - https://github.com/cb372/web-app-functional-style
 - https://github.com/calvinlfer/tagless-final-example
 
 ## Running
 
-1. Download local DynamoDB [here](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html)
-1. Run local DynamoDB `java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb`
-1. Go to DynamoDB local shell `http://localhost:8000/shell` and create a table:
+1. Download local DynamoDB [here](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html).
+2. Run local DynamoDB: 
+```bash
+java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 ```
+3. Go to DynamoDB local shell http://localhost:8000/shell and create a table:
+```javascript
 const params = {
     TableName: 'movies-test',
     KeySchema: [
